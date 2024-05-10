@@ -20,3 +20,8 @@ def step_impl(context, usuario, senha):
 def step_impl(context):
     assert context.driver.find_element(By.CSS_SELECTOR, '.title').text == 'Products'
     context.driver.quit()
+
+@then(u'exibe a mensagem de erro no login')
+def step_impl(context):
+    mensagem = 'Epic sadface: Username and password do not match any user in this service'
+    assert context.driver.find_element(By.CSS_SELECTOR, '[data-test="error"]').text == mensagem
